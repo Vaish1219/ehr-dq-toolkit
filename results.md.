@@ -43,3 +43,11 @@ labelled UNKNOWN, so a null-only check understates incompleteness.
 category.) Counts are per admission, not per patient.
 Implication: completeness checks should include placeholder values,
 not just nulls.
+
+Among the 4,494 patients with differing broad groups, 3,199 (71%)
+involve the uninformative category OTHER (OTHER/WHITE 2,235;
+BLACK/OTHER 629; HISPANIC/OTHER 335). Combinations not involving
+OTHER, which are the clearest candidates for genuine inconsistency,
+are HISPANIC/WHITE 263, BLACK/WHITE 187, and BLACK/HISPANIC 134
+(584 patients, about 0.6% of 96,925 comparable patients). Top six
+combinations shown; remaining combinations not listed.
