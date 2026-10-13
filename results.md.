@@ -23,3 +23,23 @@ recorded before admission.
 | marital_status | 2.49% | Minor gap |
 | language | 0.14% | Minor gap |
 | race | 0.0% | See note below |
+### Finding: discharge_location missingness is structural
+
+27.44% of admissions lack `discharge_location`. Missingness is
+concentrated in observation-type admissions (EU OBSERVATION 98.97%,
+AMBULATORY OBSERVATION 98.68%, DIRECT OBSERVATION 96.98%) and is
+below 1% for the other admission types shown (e.g. DIRECT EMER. 0.26%,
+SURGICAL SAME DAY ADMISSION 0.20%). These three types account for
+about 99.5% of all missing values. This indicates the gaps are
+systematic rather than random; likely cause not yet verified.
+Implication: excluding rows with missing discharge_location would
+remove most observation stays and could bias downstream analyses.
+
+### Finding: disguised missing values in race
+
+`race` has 0.0% null values but 13,870 admissions (2.54%) are
+labelled UNKNOWN, so a null-only check understates incompleteness.
+(OTHER, 19,788 admissions, 3.62%, is a valid but uninformative
+category.) Counts are per admission, not per patient.
+Implication: completeness checks should include placeholder values,
+not just nulls.
