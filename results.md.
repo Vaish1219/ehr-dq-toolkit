@@ -1,3 +1,4 @@
+
 # Results (MIMIC-IV v3.1, BigQuery)
 
 | Check | Issues found | Total rows | Percent |
@@ -9,3 +10,16 @@
 Age check passes by design: MIMIC-IV caps anchor_age, so it cannot reveal
 implausible ages. Date-order checks found 175 reversed discharge records and 26 deaths 
 recorded before admission.
+## Missing values in admissions (n = 546,028)
+
+| Column | Percent missing | Expected? |
+|---|---|---|
+| admittime | 0.0% | Yes, should be complete |
+| dischtime | 0.0% | Yes, should be complete |
+| deathtime | 97.84% | Yes (most patients survive) |
+| discharge_location | 27.44% | Needs investigation |
+| edregtime | 30.55% | Yes (not every admission comes through the ED) |
+| insurance | 1.71% | Minor gap |
+| marital_status | 2.49% | Minor gap |
+| language | 0.14% | Minor gap |
+| race | 0.0% | See note below |
